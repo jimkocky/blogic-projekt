@@ -57,3 +57,23 @@ footer {
     margin-top: 2rem;
     font-size: 0.9rem;
 }
+
+h2 {
+    margin-top: 1.5rem;
+}
+
+.card-product {
+    transition: transform 0.2s ease;
+}
+
+.card-product:hover {
+    transform: scale(1.02);
+}
+
+header h1 img {
+    height: 40px;
+}
+
+.nav-item.dropdown .dropdown-menu {
+    min-width: 200px;
+}
