@@ -1,25 +1,18 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Přidej podporu pro MVC (Controllers + Views)
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
-
-app.UseHttpsRedirection();
+// Umožni servírování statických souborů (např. CSS z wwwroot)
 app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseAuthorization();
 
+// Nastav výchozí trasu na Home/Index
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
