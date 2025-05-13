@@ -8,5 +8,10 @@ namespace TvujProjekt.Controllers
         {
             return View();
         }
+
+        public IActionResult Sprava()
+        {
+            return View();
+        }
     }
 }
