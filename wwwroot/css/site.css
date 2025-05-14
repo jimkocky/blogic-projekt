@@ -77,3 +77,14 @@ header h1 img {
 .nav-item.dropdown .dropdown-menu {
     min-width: 200px;
 }
+
+.container-sprava{
+    display: flex;
+    align-items: center;
+}
+
+.tabulka-sprava{
+    background-color: #f5f5f5;
+    border: 
+    width: 100%;
+}
