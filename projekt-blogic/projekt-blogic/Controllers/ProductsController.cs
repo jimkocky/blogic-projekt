@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using projekt_blogic.Models.Products;
+using projekt_blogic.ViewModels;
 
 namespace projekt_blogic.Controllers
 {
@@ -9,7 +10,8 @@ namespace projekt_blogic.Controllers
 
         public IActionResult Administration()
         {
-            var vm = new AdminViewModel
+
+            var vm = new AdministrationViewModel
             {
                 Products = _products
             };
@@ -20,7 +22,7 @@ namespace projekt_blogic.Controllers
         {
             if (newProduct != null)
             {
-                newProduct.Id = _products.Max(p => p.Id) + 1;
+                newProduct.ProductID = _products.Max(p => p.ProductID) + 1;
                 _products.Add(newProduct);
                 return Ok(newProduct);
             }
@@ -30,7 +32,7 @@ namespace projekt_blogic.Controllers
 
         public IActionResult Edit([FromBody] Product updatedProduct)
         {
-            var existing = _products.FirstOrDefault(p => p.Id == updatedProduct.Id);
+            var existing = _products.FirstOrDefault(p => p.ProductID == updatedProduct.ProductID);
             if (existing != null)
             {
                 existing.Name = updatedProduct.Name;
@@ -43,7 +45,7 @@ namespace projekt_blogic.Controllers
 
         public IActionResult Delete(int id)
         {
-            var product = _products.FirstOrDefault(p => p.Id == id);
+            var product = _products.FirstOrDefault(p => p.ProductID == id);
             if (product != null)
             {
                 _products.Remove(product);
@@ -54,16 +56,5 @@ namespace projekt_blogic.Controllers
         }
     }
 
-    public class Product
-    {
-        public int Id { get; set; } 
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-    }
-
-    public class AdminViewModel
-    {
-        public List<Product> Products { get; set; }
-    }
 }
 
