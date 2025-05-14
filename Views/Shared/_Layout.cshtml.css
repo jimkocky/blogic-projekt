@@ -46,3 +46,38 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+
+.container-sprava{
+    display: flex;
+    align-items: center;
+}
+
+.tabulka-sprava{
+    width: 100%;
+}
+
+.prod, .cena, .mnoz{
+    font-size: 150%;
+}
+
+.prod{
+    width: 50%
+}
+
+.cena, .mnoz{
+    width: 10%;
+}
+
+td{
+    font-size: 130%;
+    text-align: left;
+}
+
+.td-mid, tr{
+    text-align: center;
+}
+
+.td-mid, .td{
+    padding: 0 1% 1%;
+    border-bottom: solid 2px black;
+}
