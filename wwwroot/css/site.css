@@ -78,8 +78,14 @@ header h1 img {
     min-width: 200px;
 }
 
+.container-sprava, .container-kosik{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 2.5% 0 2.5%
+}
+
 .tabulka-sprava{
-    margin: 2% 0;
     width: 100%;
 }
 
@@ -118,5 +124,27 @@ header h1 img {
 .icon-buttons{
     display: flex;
     justify-content: end;
-    gap: 5%
+    gap: 10%
+}
+
+.tabulka-kosik{
+    width: 80%;
+}
+
+.tabulka-kosik .prdkt{
+    width: 60%;
+}
+
+
+.tabulka-kosik .mnzst{
+    width: 15%;
+}
+
+
+.tabulka-kosik .cena{
+    width: 15%;
+}
+
+.tabulka-kosik .funkc{
+    width: 10%;
 }

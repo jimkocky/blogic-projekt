@@ -28,7 +28,12 @@ namespace projekt_blogic.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-                public IActionResult Sprava()
+        public IActionResult Sprava()
+        {
+            return View();
+        }
+
+        public IActionResult Kosik()
         {
             return View();
         }

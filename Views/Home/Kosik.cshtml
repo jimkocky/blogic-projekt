@@ -1,34 +1,133 @@
 ﻿@{
-    ViewData["Title"] = "Domovská stránka";
+    ViewData["Title"] = "Košík";
 }
 
-<!-- Přidání Bootstrapu -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-
-<div class="container-fluid p-0">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <div class="container-fluid p-0">
     <div class="bg-image" style="background-image: url('https://ichef.bbci.co.uk/ace/standard/2560/cpsprodpb/5760/live/13359050-27eb-11ef-8748-d589b4996777.jpg'); height: 300px;">
         <div class="d-flex justify-content-center align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.5);">
             <div class="text-center text-white">
-                <h1 class="mb-3">Tvá objednávka</h1>
-                
-                </div>
+                <h1 class="mb-3">Košík</h1>
             </div>
         </div>
     </div>
 </div>
-  <div class= container-sprava>
-    <table class="tabulka-sprava">
+    <div class="container-kosik">
+    <table class="tabulka-kosik">
     <tr>
-        <th class="prod">Produkt</th>
+        <th class="prdkt">Produkt</th>
+        <th class="mnzst">Množství</th>
         <th class="cena">Cena</th>
-        <th class="mnoz">Množství</th>
+        <th class="funkc">    </th>
     </tr>
+    
     <tr>
-        <td>Rohlík</td>
-        <td>1 Kč</td>
-        <td>5 ks.</td>
-        <td>5 ks.</td>
+        <td class="td">
+            <div class="produkt">
+                Rohlík
+                <img src="/image/rohlik.png" style="max-width: 70px;">
+            </div>
+        </td>
+        <td class="td" style="text-align: center;">
+            5 ks.
+        </td>
+        <td class="td" style="text-align: center;">
+            1 kč
+        </td>
+        <td class="td">
+                <a class="delete-button" href="" style="text-decoration: none; text-align: right;">
+                    <img class="icon" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
+                </a>
+        </td>
+    </tr>
+
+        <tr>
+        <td class="td">
+            <div class="produkt">
+                Produkt
+                <img src="/image/.png" style="max-width: 70px;">
+            </div>
+        </td>
+        <td class="td" style="text-align: center;">
+            x ks.
+        </td>
+        <td class="td" style="text-align: center;">
+            x kč
+        </td>
+        <td class="td">
+                <a class="delete-button" href="" style="text-decoration: none; text-align: right;">
+                    <img class="icon" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
+                </a>
+        </td>
+    </tr>
+
+            <tr>
+        <td class="td">
+            <div class="produkt">
+                Produkt
+                <img src="/image/.png" style="max-width: 70px;">
+            </div>
+        </td>
+        <td class="td" style="text-align: center;">
+            x ks.
+        </td>
+        <td class="td" style="text-align: center;">
+            x kč
+        </td>
+        <td class="td">
+                <a class="delete-button" href="" style="text-decoration: none; text-align: right;">
+                    <img class="icon" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
+                </a>
+        </td>
+    </tr>
+
+            <tr>
+        <td class="td">
+            <div class="produkt">
+                Produkt
+                <img src="/image/.png" style="max-width: 70px;">
+            </div>
+        </td>
+        <td class="td" style="text-align: center;">
+            x ks.
+        </td>
+        <td class="td" style="text-align: center;">
+            x kč
+        </td>
+        <td class="td">
+                <a class="delete-button" href="" style="text-decoration: none; text-align: right;">
+                    <img class="icon" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
+                </a>
+        </td>
+    </tr>
+
+            <tr>
+        <td class="td">
+            <div class="produkt">
+                Produkt
+                <img src="/image/.png" style="max-width: 70px;">
+            </div>
+        </td>
+        <td class="td" style="text-align: center;">
+            x ks.
+        </td>
+        <td class="td" style="text-align: center;">
+            x kč
+        </td>
+        <td class="td">
+                <a class="delete-button" href="" style="text-decoration: none; text-align: right;">
+                    <img class="icon" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
+                </a>
+        </td>
     </tr>
     </table>
-    </div>
-
+</div>
+</body>
+</html>
