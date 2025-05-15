@@ -78,8 +78,73 @@ header h1 img {
     min-width: 200px;
 }
 
-.container-sprava{
+.container-sprava, .container-kosik{
     display: flex;
-    align-items: center;
+    width: 100%;
+    justify-content: center;
+    margin: 2.5% 0 2.5%
 }
 
+.tabulka-sprava{
+    width: 100%;
+}
+
+.prdkt, .mnzst, .cena, .funkc{
+    text-align: center;
+    font-size: 120%;
+    border-bottom: #d2d2d2 solid 1px;
+    padding: 0.5% 2% 0.5%;
+}
+
+.td{
+    border-bottom: #d2d2d2 solid 1px;
+    font-size: 120%;
+    padding: 0.5% 2% 0.5%;
+}
+
+.prdkt{
+    width: 60%;
+}
+
+.mnzst, .cena{
+    width: 10%;
+}
+
+.funkc{
+    width: 20%;
+}
+
+.produkt{
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon-buttons{
+    display: flex;
+    justify-content: end;
+    gap: 10%
+}
+
+.tabulka-kosik{
+    width: 80%;
+}
+
+.tabulka-kosik .prdkt{
+    width: 60%;
+}
+
+
+.tabulka-kosik .mnzst{
+    width: 15%;
+}
+
+
+.tabulka-kosik .cena{
+    width: 15%;
+}
+
+.tabulka-kosik .funkc{
+    width: 10%;
+}

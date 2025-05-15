@@ -1,5 +1,5 @@
-@{
-    ViewData["Title"] = "Správa produktů";
+﻿@{
+    ViewData["Title"] = "Košík";
 }
 
 <!DOCTYPE html>
@@ -14,19 +14,20 @@
     <div class="bg-image" style="background-image: url('https://ichef.bbci.co.uk/ace/standard/2560/cpsprodpb/5760/live/13359050-27eb-11ef-8748-d589b4996777.jpg'); height: 300px;">
         <div class="d-flex justify-content-center align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.5);">
             <div class="text-center text-white">
-                <h1 class="mb-3">Správa produktů</h1>
+                <h1 class="mb-3">Košík</h1>
             </div>
         </div>
     </div>
 </div>
-    <div class="container-sprava">
-    <table class="tabulka-sprava">
+    <div class="container-kosik">
+    <table class="tabulka-kosik">
     <tr>
         <th class="prdkt">Produkt</th>
         <th class="mnzst">Množství</th>
         <th class="cena">Cena</th>
         <th class="funkc">    </th>
     </tr>
+    
     <tr>
         <td class="td">
             <div class="produkt">
@@ -41,18 +42,13 @@
             1 kč
         </td>
         <td class="td">
-            <div class="icon-buttons">
-                <a class="edit-button" href="" style="text-decoration: none;">
-                    <img class="icon" src="/image/build_circle_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                 </a>
-                <a class="delete-button" href="" style="text-decoration: none;">
+                <a class="delete-button" href="" style="text-decoration: none; text-align: right;">
                     <img class="icon" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
                 </a>
-            </div>
         </td>
     </tr>
 
-    <tr>
+        <tr>
         <td class="td">
             <div class="produkt">
                 Produkt
@@ -66,18 +62,13 @@
             x kč
         </td>
         <td class="td">
-            <div class="icon-buttons">
-                <a class="edit-button" href="" style="text-decoration: none;">
-                    <img class="icon" src="/image/build_circle_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                 </a>
-                <a class="delete-button" href="" style="text-decoration: none;">
+                <a class="delete-button" href="" style="text-decoration: none; text-align: right;">
                     <img class="icon" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
                 </a>
-            </div>
         </td>
     </tr>
 
-     <tr>
+            <tr>
         <td class="td">
             <div class="produkt">
                 Produkt
@@ -91,18 +82,13 @@
             x kč
         </td>
         <td class="td">
-            <div class="icon-buttons">
-                <a class="edit-button" href="" style="text-decoration: none;">
-                    <img class="icon" src="/image/build_circle_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                 </a>
-                <a class="delete-button" href="" style="text-decoration: none;">
+                <a class="delete-button" href="" style="text-decoration: none; text-align: right;">
                     <img class="icon" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
                 </a>
-            </div>
         </td>
     </tr>
 
-         <tr></tr>
+            <tr>
         <td class="td">
             <div class="produkt">
                 Produkt
@@ -116,18 +102,13 @@
             x kč
         </td>
         <td class="td">
-            <div class="icon-buttons">
-                <a class="edit-button" href="" style="text-decoration: none;">
-                    <img class="icon" src="/image/build_circle_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                 </a>
-                <a class="delete-button" href="" style="text-decoration: none;">
+                <a class="delete-button" href="" style="text-decoration: none; text-align: right;">
                     <img class="icon" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
                 </a>
-            </div>
         </td>
     </tr>
 
-         <tr>
+            <tr>
         <td class="td">
             <div class="produkt">
                 Produkt
@@ -141,39 +122,9 @@
             x kč
         </td>
         <td class="td">
-            <div class="icon-buttons">
-                <a class="edit-button" href="" style="text-decoration: none;">
-                    <img class="icon" src="/image/build_circle_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                 </a>
-                <a class="delete-button" href="" style="text-decoration: none;">
+                <a class="delete-button" href="" style="text-decoration: none; text-align: right;">
                     <img class="icon" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
                 </a>
-            </div>
-        </td>
-    </tr>
-
-         <tr>
-        <td class="td">
-            <div class="produkt">
-                Produkt
-                <img src="/image/.png" style="max-width: 70px;">
-            </div>
-        </td>
-        <td class="td" style="text-align: center;">
-            x ks.
-        </td>
-        <td class="td" style="text-align: center;">
-            x kč
-        </td>
-        <td class="td">
-            <div class="icon-buttons">
-                <a class="edit-button" href="" style="text-decoration: none;">
-                    <img class="icon" src="/image/build_circle_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                 </a>
-                <a class="delete-button" href="" style="text-decoration: none;">
-                    <img class="icon" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                </a>
-            </div>
         </td>
     </tr>
     </table>

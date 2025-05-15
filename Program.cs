@@ -1,21 +1,33 @@
-var builder = WebApplication.CreateBuilder(args);
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
-// Přidej podporu pro MVC (Controllers + Views)
-builder.Services.AddControllersWithViews();
+namespace MyMvcApp
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            var builder = WebApplication.CreateBuilder(args);
 
-var app = builder.Build();
+            // Přidej podporu pro MVC (Controllers + Views)
+            builder.Services.AddControllersWithViews();
 
-// Umožni servírování statických souborů (např. CSS z wwwroot)
-app.UseStaticFiles();
+            var app = builder.Build();
 
-app.UseRouting();
+            // Umožni servírování statických souborů (např. CSS z wwwroot)
+            app.UseStaticFiles();
 
-app.UseAuthorization();
+            app.UseRouting();
 
-// Nastav výchozí trasu na Home/Index
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+            app.UseAuthorization();
 
-app.Run();
+            // Nastav výchozí trasu na Home/Index
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
 
+            app.Run();
+        }
+    }
+}
