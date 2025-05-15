@@ -84,10 +84,10 @@
     { title: "Zmrzlina 2", price: "65 Kč", img: "https://via.placeholder.com/300" },
     { title: "Zmrzlina 3", price: "68 Kč", img: "https://via.placeholder.com/300" },
     { title: "Zmrzlina 4", price: "72 Kč", img: "https://via.placeholder.com/300" },
-     { title: "Zmrzlina 1", price: "60 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Zmrzlina 2", price: "65 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Zmrzlina 3", price: "68 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Zmrzlina 4", price: "72 Kč", img: "https://via.placeholder.com/300" },
+     { title: "Zmrzlina 5", price: "60 Kč", img: "https://via.placeholder.com/300" },
+    { title: "Zmrzlina 6", price: "65 Kč", img: "https://via.placeholder.com/300" },
+    { title: "Zmrzlina 7", price: "68 Kč", img: "https://via.placeholder.com/300" },
+    { title: "Zmrzlina 8", price: "72 Kč", img: "https://via.placeholder.com/300" },
   ]
 };
 
