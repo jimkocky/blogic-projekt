@@ -7,4 +7,8 @@
     <RootNamespace>projekt_blogic</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Products\" />
+  </ItemGroup>
+
 </Project>

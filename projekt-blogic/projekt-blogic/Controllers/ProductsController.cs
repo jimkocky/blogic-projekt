@@ -54,6 +54,12 @@ namespace projekt_blogic.Controllers
 
             return NotFound();
         }
+
+        private readonly IWebHostEnvironment _environment;
+        public ProductsController(IWebHostEnvironment environment)
+        {
+            _environment = environment;
+        }
     }
 
 }
