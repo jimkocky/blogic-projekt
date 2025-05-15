@@ -78,44 +78,45 @@ header h1 img {
     min-width: 200px;
 }
 
-.container-sprava{
-    display: flex;
-    align-items: center;
-}
-
 .tabulka-sprava{
+    margin: 2% 0;
     width: 100%;
 }
 
-.prod, .cena, .mnoz{
-    font-size: 150%;
+.prdkt, .mnzst, .cena, .funkc{
+    text-align: center;
+    font-size: 120%;
+    border-bottom: #d2d2d2 solid 1px;
+    padding: 0.5% 2% 0.5%;
 }
 
-.prod{
-    width: 50%;
+.td{
+    border-bottom: #d2d2d2 solid 1px;
+    font-size: 120%;
+    padding: 0.5% 2% 0.5%;
 }
 
-.cena, .mnoz{
+.prdkt{
+    width: 60%;
+}
+
+.mnzst, .cena{
     width: 10%;
 }
 
-tr {
-    height: 50px; /* Nastav požadovanou výšku řádku */
+.funkc{
+    width: 20%;
 }
 
-td {
-    padding: 15px 10px; /* Nastav větší mezeru mezi řádky */
-}
-td{
-    font-size: 130%;
-    text-align: left;
-}
-
-.td-mid, tr{
-    text-align: center;
+.produkt{
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.td-mid, .td{
-    padding: 2% 1% 1%;
-    border-bottom: solid 2px black;
+.icon-buttons{
+    display: flex;
+    justify-content: end;
+    gap: 5%
 }
