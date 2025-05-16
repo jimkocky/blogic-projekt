@@ -1,4 +1,4 @@
-﻿const data = {
+const data = {
   moje: [
     { title: "Moje 1", price: "100 Kč", img: "/image/rohlik.png" },
     { title: "Moje 2", price: "110 Kč", img: "/image/monster.png" },
