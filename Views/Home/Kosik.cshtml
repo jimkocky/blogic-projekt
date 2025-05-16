@@ -42,8 +42,10 @@
             let total = 0;
 
             cart.forEach((item, index) => {
+                item.quantity = item.quantity || 1;
                 const priceNumber = parseInt(item.price.replace(" Kč", ""));
-                total += priceNumber;
+                const itemTotal = item.quantity * priceNumber;
+                total += itemTotal;
 
                 const row = document.createElement("tr");
                 row.innerHTML = `
@@ -53,8 +55,14 @@
                             <img src="${item.img}" style="max-width: 70px;">
                         </div>
                     </td>
-                    <td class="td text-center">1 ks.</td>
-                    <td class="td text-center">${item.price}</td>
+                    <td class="td text-center">
+                        <div class="d-flex justify-content-center align-items-center gap-2">
+                            <button class="btn btn-sm btn-outline-secondary" onclick="changeQuantity(${index}, -1)">−</button>
+                            <span>${item.quantity} ks</span>
+                            <button class="btn btn-sm btn-outline-secondary" onclick="changeQuantity(${index}, 1)">+</button>
+                        </div>
+                    </td>
+                    <td class="td text-center">${itemTotal} Kč</td>
                     <td class="td text-end">
                         <button class="btn btn-sm btn-outline-danger" onclick="removeFromCart(${index})">
                             <img class="icon" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png" style="width: 24px;" />
@@ -65,6 +73,19 @@
             });
 
             totalEl.textContent = total + " Kč";
+        }
+
+        function changeQuantity(index, delta) {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart[index].quantity = (cart[index].quantity || 1) + delta;
+
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCart();
+            updateCartCount?.();
         }
 
         function removeFromCart(index) {

@@ -109,7 +109,7 @@ function loadCategory(category) {
         <div class="card-body">
           <h5 class="card-title">${product.title}</h5>
           <p class="card-text">${product.price}</p>
-          <a href="#" class="btn btn-warning" onclick="addToCart('${product.title}', '${product.price}', '${product.img}')">Koupit</a>
+          <a  class="btn btn-warning" onclick="addToCart('${product.title}', '${product.price}', '${product.img}')">Koupit</a>
         </div>
       </div>
     `;
@@ -118,17 +118,23 @@ function loadCategory(category) {
 }
 
 function addToCart(title, price, img) {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart.push({ title, price, img });
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const index = cart.findIndex(p => p.title === title);
+  if (index > -1) {
+    cart[index].quantity = (cart[index].quantity || 1) + 1;
+  } else {
+    cart.push({ title, price, img, quantity: 1 });
+  }
   localStorage.setItem("cart", JSON.stringify(cart));
   alert(`✅ Přidáno do košíku: ${title}`);
-  updateCartCount?.();
+  updateCartCount();
 }
 
 function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const totalCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
   const countEl = document.getElementById("cart-count");
-  if (countEl) countEl.textContent = cart.length;
+  if (countEl) countEl.textContent = totalCount;
 }
 
 function renderCart() {
@@ -141,8 +147,10 @@ function renderCart() {
   let total = 0;
 
   cart.forEach((item, index) => {
+    item.quantity = item.quantity || 1; // Ochrana pro starší záznamy
     const priceNumber = parseInt(item.price.replace(" Kč", ""));
-    total += priceNumber;
+    const itemTotal = item.quantity * priceNumber;
+    total += itemTotal;
 
     const row = document.createElement("tr");
     row.innerHTML = `
@@ -152,10 +160,10 @@ function renderCart() {
           <img src="${item.img}" style="max-width: 70px;">
         </div>
       </td>
-      <td class="td" style="text-align: center;">1 ks.</td>
-      <td class="td" style="text-align: center;">${item.price}</td>
-      <td class="td" style="text-align: center;">
-        <a class="delete-button" href="#" onclick="removeFromCart(${index})" style="text-decoration: none;">
+      <td class="td text-center">${item.quantity} ks.</td>
+      <td class="td text-center">${itemTotal} Kč</td>
+      <td class="td text-center">
+        <a class="delete-button" onclick="removeFromCart(${index})" style="text-decoration: none;">
           <img class="icon" src="/images/delete_forever.png" style="width:24px;">
         </a>
       </td>
@@ -168,7 +176,14 @@ function renderCart() {
 
 function removeFromCart(index) {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart.splice(index, 1);
+  cart[index].quantity = cart[index].quantity || 1;
+
+  if (cart[index].quantity > 1) {
+    cart[index].quantity -= 1;
+  } else {
+    cart.splice(index, 1);
+  }
+
   localStorage.setItem("cart", JSON.stringify(cart));
   renderCart();
   updateCartCount();
@@ -182,7 +197,6 @@ function clearCart() {
   }
 }
 
-// Při načtení stránky
 window.onload = () => {
   loadCategory('moje');
   updateCartCount();
