@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using projekt_blogic.Data;
 using projekt_blogic.Models.Products;
 using projekt_blogic.ViewModels;
 
@@ -13,8 +14,10 @@ namespace projekt_blogic.Controllers
 
             var vm = new AdministrationViewModel
             {
-                Products = _products
+                Products = DataBase.GetAllProducts()
             };
+
+
             return View(vm);
         }
 
