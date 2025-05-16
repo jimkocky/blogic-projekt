@@ -109,7 +109,7 @@ function loadCategory(category) {
         <div class="card-body">
           <h5 class="card-title">${product.title}</h5>
           <p class="card-text">${product.price}</p>
-          <a href="#" class="btn btn-warning" onclick="addToCart('${product.title}', '${product.price}', '${product.img}')">Koupit</a>
+          <a class="btn btn-warning" onclick="addToCart('${product.title}', '${product.price}', '${product.img}')">Koupit</a>
         </div>
       </div>
     `;
@@ -155,7 +155,7 @@ function renderCart() {
       <td class="td" style="text-align: center;">1 ks.</td>
       <td class="td" style="text-align: center;">${item.price}</td>
       <td class="td" style="text-align: center;">
-        <a class="delete-button" href="#" onclick="removeFromCart(${index})" style="text-decoration: none;">
+        <a class="delete-button" onclick="removeFromCart(${index})" style="text-decoration: none;">
           <img class="icon" src="/images/delete_forever.png" style="width:24px;">
         </a>
       </td>
