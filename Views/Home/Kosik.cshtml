@@ -2,15 +2,7 @@
     ViewData["Title"] = "Košík";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"]</title>
-</head>
-<body>
-    <div class="container-fluid p-0">
+<div class="container-fluid p-0">
     <div class="bg-image" style="background-image: url('https://ichef.bbci.co.uk/ace/standard/2560/cpsprodpb/5760/live/13359050-27eb-11ef-8748-d589b4996777.jpg'); height: 300px;">
         <div class="d-flex justify-content-center align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.5);">
             <div class="text-center text-white">
@@ -19,115 +11,99 @@
         </div>
     </div>
 </div>
-    <div class="container-kosik">
-    <table class="tabulka-kosik">
-    <tr>
-        <th class="prdkt">Produkt</th>
-        <th class="mnzst">Množství</th>
-        <th class="cena">Cena</th>
-        <th class="funkc">    </th>
-    </tr>
-    
-    <tr>
-        <td class="td">
-            <div class="produkt">
-                Rohlík
-                <img src="/image/rohlik.png" style="max-width: 70px;">
-            </div>
-        </td>
-        <td class="td" style="text-align: center;">
-            5 ks.
-        </td>
-        <td class="td" style="text-align: center;">
-            1 kč
-        </td>
-        <td class="td">
-                <a class="delete-button" href="" style="text-decoration: none; text-align: right;">
-                    <img class="icon" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                </a>
-        </td>
-    </tr>
 
+<table class="tabulka-kosik w-100">
+    <thead>
         <tr>
-        <td class="td">
-            <div class="produkt">
-                Produkt
-                <img src="/image/.png" style="max-width: 70px;">
-            </div>
-        </td>
-        <td class="td" style="text-align: center;">
-            x ks.
-        </td>
-        <td class="td" style="text-align: center;">
-            x kč
-        </td>
-        <td class="td">
-                <a class="delete-button" href="" style="text-decoration: none; text-align: right;">
-                    <img class="icon" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                </a>
-        </td>
-    </tr>
+            <th class="prdkt">Produkt</th>
+            <th class="mnzst text-center">Množství</th>
+            <th class="cena text-center">Cena</th>
+            <th class="funkc text-end">
+                <div class="d-flex justify-content-end align-items-center gap-3">
+                    <span><strong>Celkem: <span id="total-price">0 Kč</span></strong></span>
+                    <button onclick="clearCart()" class="btn btn-danger btn-sm">🗑 Vysypat košík</button>
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody id="cart-table-body">
+    </tbody>
+</table>
 
-            <tr>
-        <td class="td">
-            <div class="produkt">
-                Produkt
-                <img src="/image/.png" style="max-width: 70px;">
-            </div>
-        </td>
-        <td class="td" style="text-align: center;">
-            x ks.
-        </td>
-        <td class="td" style="text-align: center;">
-            x kč
-        </td>
-        <td class="td">
-                <a class="delete-button" href="" style="text-decoration: none; text-align: right;">
-                    <img class="icon" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                </a>
-        </td>
-    </tr>
+   
+@section Scripts {
+    <script>
+        function renderCart() {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const tableBody = document.getElementById("cart-table-body");
+            const totalEl = document.getElementById("total-price");
+            tableBody.innerHTML = "";
 
-            <tr>
-        <td class="td">
-            <div class="produkt">
-                Produkt
-                <img src="/image/.png" style="max-width: 70px;">
-            </div>
-        </td>
-        <td class="td" style="text-align: center;">
-            x ks.
-        </td>
-        <td class="td" style="text-align: center;">
-            x kč
-        </td>
-        <td class="td">
-                <a class="delete-button" href="" style="text-decoration: none; text-align: right;">
-                    <img class="icon" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                </a>
-        </td>
-    </tr>
+            let total = 0;
 
-            <tr>
-        <td class="td">
-            <div class="produkt">
-                Produkt
-                <img src="/image/.png" style="max-width: 70px;">
-            </div>
-        </td>
-        <td class="td" style="text-align: center;">
-            x ks.
-        </td>
-        <td class="td" style="text-align: center;">
-            x kč
-        </td>
-        <td class="td">
-                <a class="delete-button" href="" style="text-decoration: none; text-align: right;">
-                    <img class="icon" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                </a>
-        </td>
-    </tr>
-    </table>
-</div>
-</body>
-</html>
+            cart.forEach((item, index) => {
+                item.quantity = item.quantity || 1;
+                const priceNumber = parseInt(item.price.replace(" Kč", ""));
+                const itemTotal = item.quantity * priceNumber;
+                total += itemTotal;
+
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td class="td">
+                        <div class="produkt d-flex align-items-center gap-3">
+                            ${item.title}
+                            <img src="${item.img}" style="max-width: 70px;">
+                        </div>
+                    </td>
+                    <td class="td text-center">
+                        <div class="d-flex justify-content-center align-items-center gap-2">
+                            <button class="btn btn-sm btn-outline-secondary" onclick="changeQuantity(${index}, -1)">−</button>
+                            <span>${item.quantity} ks</span>
+                            <button class="btn btn-sm btn-outline-secondary" onclick="changeQuantity(${index}, 1)">+</button>
+                        </div>
+                    </td>
+                    <td class="td text-center">${itemTotal} Kč</td>
+                    <td class="td text-end">
+                        <button class="btn btn-sm btn-outline-danger" onclick="removeFromCart(${index})">
+                            <img class="icon" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png" style="width: 24px;" />
+                        </button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+
+            totalEl.textContent = total + " Kč";
+        }
+
+        function changeQuantity(index, delta) {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart[index].quantity = (cart[index].quantity || 1) + delta;
+
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCart();
+            updateCartCount?.();
+        }
+
+        function removeFromCart(index) {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCart();
+            updateCartCount?.();
+        }
+
+        function clearCart() {
+            if (confirm("Opravdu chcete vysypat celý košík?")) {
+                localStorage.removeItem("cart");
+                renderCart();
+                updateCartCount?.();
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", renderCart);
+    </script>
+}
