@@ -167,3 +167,8 @@ header h1 img {
 .produkt img {
     border-radius: 5px;
 }
+
+.product-img {
+    height: 100px;
+    /* object-fit: cover; */
+}
