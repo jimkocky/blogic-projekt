@@ -119,3 +119,50 @@ function loadCategory(category) {
 
 // Spustí se po načtení stránky a zobrazí výchozí kategorii
 window.onload = () => loadCategory('moje');
+
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const countEl = document.getElementById("cart-count");
+    if (countEl) countEl.textContent = cart.length;
+}
+
+function renderCart() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const tableBody = document.getElementById("cart-table-body");
+  const totalEl = document.getElementById("total-price");
+  tableBody.innerHTML = "";
+
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    const priceNumber = parseInt(item.price.replace(" Kč", ""));
+    total += priceNumber;
+
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td class="td">
+        <div class="produkt">
+          ${item.title}
+          <img src="${item.img}" style="max-width: 70px;">
+        </div>
+      </td>
+      <td class="td" style="text-align: center;">1 ks.</td>
+      <td class="td" style="text-align: center;">${item.price}</td>
+      <td class="td" style="text-align: center;">
+        <a class="delete-button" href="#" onclick="removeFromCart(${index})" style="text-decoration: none;">
+          <img class="icon" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
+        </a>
+      </td>
+    `;
+    tableBody.appendChild(row);
+  });
+
+  totalEl.textContent = `${total} Kč`;
+}
+function removeFromCart(index) {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+  updateCartCount();
+}
