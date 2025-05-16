@@ -1,8 +1,8 @@
 ﻿const data = {
   moje: [
-    { title: "Moje 1", price: "100 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Moje 2", price: "110 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Moje 3", price: "120 Kč", img: "https://via.placeholder.com/300" },
+    { title: "Moje 1", price: "100 Kč", img: "/image/rohlik.png" },
+    { title: "Moje 2", price: "110 Kč", img: "/image/monster.png" },
+    { title: "Moje 3", price: "120 Kč", img: "/image/adam.png" },
     { title: "Moje 4", price: "130 Kč", img: "https://via.placeholder.com/300" },
     { title: "Moje 5", price: "100 Kč", img: "https://via.placeholder.com/300" },
     { title: "Moje 6", price: "110 Kč", img: "https://via.placeholder.com/300" },
@@ -105,11 +105,11 @@ function loadCategory(category) {
     col.className = "col-md-3 mb-4";
     col.innerHTML = `
       <div class="card h-100">
-        <img src="${product.img}" class="card-img-top" alt="${product.title}">
+        <img src="${product.img}" class="card-img-top product-img" alt="${product.title}">
         <div class="card-body">
           <h5 class="card-title">${product.title}</h5>
           <p class="card-text">${product.price}</p>
-          <a href="#" class="btn btn-warning">Koupit</a>
+          <a href="#" class="btn btn-warning" onclick="addToCart('${product.title}', '${product.price}', '${product.img}')">Koupit</a>
         </div>
       </div>
     `;
@@ -117,21 +117,27 @@ function loadCategory(category) {
   });
 }
 
-// Spustí se po načtení stránky a zobrazí výchozí kategorii
-window.onload = () => loadCategory('moje');
+function addToCart(title, price, img) {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push({ title, price, img });
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert(`✅ Přidáno do košíku: ${title}`);
+  updateCartCount?.();
+}
 
 function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const countEl = document.getElementById("cart-count");
-    if (countEl) countEl.textContent = cart.length;
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const countEl = document.getElementById("cart-count");
+  if (countEl) countEl.textContent = cart.length;
 }
 
 function renderCart() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const tableBody = document.getElementById("cart-table-body");
   const totalEl = document.getElementById("total-price");
-  tableBody.innerHTML = "";
+  if (!tableBody || !totalEl) return;
 
+  tableBody.innerHTML = "";
   let total = 0;
 
   cart.forEach((item, index) => {
@@ -150,7 +156,7 @@ function renderCart() {
       <td class="td" style="text-align: center;">${item.price}</td>
       <td class="td" style="text-align: center;">
         <a class="delete-button" href="#" onclick="removeFromCart(${index})" style="text-decoration: none;">
-          <img class="icon" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
+          <img class="icon" src="/images/delete_forever.png" style="width:24px;">
         </a>
       </td>
     `;
@@ -159,6 +165,7 @@ function renderCart() {
 
   totalEl.textContent = `${total} Kč`;
 }
+
 function removeFromCart(index) {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart.splice(index, 1);
@@ -166,3 +173,18 @@ function removeFromCart(index) {
   renderCart();
   updateCartCount();
 }
+
+function clearCart() {
+  if (confirm("Opravdu chcete vysypat celý košík?")) {
+    localStorage.removeItem("cart");
+    renderCart();
+    updateCartCount();
+  }
+}
+
+// Při načtení stránky
+window.onload = () => {
+  loadCategory('moje');
+  updateCartCount();
+  renderCart();
+};
