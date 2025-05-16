@@ -1,8 +1,8 @@
-﻿const data = {
+const data = {
   moje: [
-    { title: "Moje 1", price: "100 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Moje 2", price: "110 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Moje 3", price: "120 Kč", img: "https://via.placeholder.com/300" },
+    { title: "Moje 1", price: "100 Kč", img: "/image/rohlik.png" },
+    { title: "Moje 2", price: "110 Kč", img: "/image/monster.png" },
+    { title: "Moje 3", price: "120 Kč", img: "/image/adam.png" },
     { title: "Moje 4", price: "130 Kč", img: "https://via.placeholder.com/300" },
     { title: "Moje 5", price: "100 Kč", img: "https://via.placeholder.com/300" },
     { title: "Moje 6", price: "110 Kč", img: "https://via.placeholder.com/300" },
@@ -105,11 +105,11 @@ function loadCategory(category) {
     col.className = "col-md-3 mb-4";
     col.innerHTML = `
       <div class="card h-100">
-        <img src="${product.img}" class="card-img-top" alt="${product.title}">
+        <img src="${product.img}" class="card-img-top product-img" alt="${product.title}">
         <div class="card-body">
           <h5 class="card-title">${product.title}</h5>
           <p class="card-text">${product.price}</p>
-          <a href="#" class="btn btn-warning">Koupit</a>
+          <a  class="btn btn-warning" onclick="addToCart('${product.title}', '${product.price}', '${product.img}')">Koupit</a>
         </div>
       </div>
     `;
@@ -117,5 +117,88 @@ function loadCategory(category) {
   });
 }
 
-// Spustí se po načtení stránky a zobrazí výchozí kategorii
-window.onload = () => loadCategory('moje');
+function addToCart(title, price, img) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const index = cart.findIndex(p => p.title === title);
+  if (index > -1) {
+    cart[index].quantity = (cart[index].quantity || 1) + 1;
+  } else {
+    cart.push({ title, price, img, quantity: 1 });
+  }
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert(`✅ Přidáno do košíku: ${title}`);
+  updateCartCount();
+}
+
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const totalCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+  const countEl = document.getElementById("cart-count");
+  if (countEl) countEl.textContent = totalCount;
+}
+
+function renderCart() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const tableBody = document.getElementById("cart-table-body");
+  const totalEl = document.getElementById("total-price");
+  if (!tableBody || !totalEl) return;
+
+  tableBody.innerHTML = "";
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    item.quantity = item.quantity || 1; // Ochrana pro starší záznamy
+    const priceNumber = parseInt(item.price.replace(" Kč", ""));
+    const itemTotal = item.quantity * priceNumber;
+    total += itemTotal;
+
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td class="td">
+        <div class="produkt">
+          ${item.title}
+          <img src="${item.img}" style="max-width: 70px;">
+        </div>
+      </td>
+      <td class="td text-center">${item.quantity} ks.</td>
+      <td class="td text-center">${itemTotal} Kč</td>
+      <td class="td text-center">
+        <a class="delete-button" onclick="removeFromCart(${index})" style="text-decoration: none;">
+          <img class="icon" src="/images/delete_forever.png" style="width:24px;">
+        </a>
+      </td>
+    `;
+    tableBody.appendChild(row);
+  });
+
+  totalEl.textContent = `${total} Kč`;
+}
+
+function removeFromCart(index) {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart[index].quantity = cart[index].quantity || 1;
+
+  if (cart[index].quantity > 1) {
+    cart[index].quantity -= 1;
+  } else {
+    cart.splice(index, 1);
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+  updateCartCount();
+}
+
+function clearCart() {
+  if (confirm("Opravdu chcete vysypat celý košík?")) {
+    localStorage.removeItem("cart");
+    renderCart();
+    updateCartCount();
+  }
+}
+
+window.onload = () => {
+  loadCategory('moje');
+  updateCartCount();
+  renderCart();
+};
