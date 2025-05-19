@@ -37,5 +37,10 @@ namespace projekt_blogic.Controllers
         {
             return View();
         }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
     }
 }
