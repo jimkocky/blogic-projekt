@@ -1,0 +1,59 @@
+@{
+    ViewData["Title"] = "Moje objednávky";
+}
+
+<div class="container-fluid p-0">
+    <div class="bg-image" style="background-image: url('https://ichef.bbci.co.uk/ace/standard/2400/cpsprodpb/BF6F/production/_123456789_strawberry.jpg'); height: 250px;">
+        <div class="d-flex justify-content-center align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.5);">
+            <div class="text-center text-white">
+                <h1 class="mb-0">Moje objednávky</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-4">
+    <form class="row g-3 mb-4">
+        <div class="col-md-4">
+            <label for="fromDate" class="form-label">Od</label>
+            <input type="date" id="fromDate" class="form-control">
+        </div>
+        <div class="col-md-4">
+            <label for="toDate" class="form-label">Do</label>
+            <input type="date" id="toDate" class="form-control">
+        </div>
+        <div class="col-md-4 d-flex align-items-end">
+            <button type="button" class="btn btn-outline-primary w-100">Filtrovat</button>
+        </div>
+    </form>
+
+    <table class="table table-bordered table-hover align-middle">
+        <thead class="table-light">
+            <tr>
+                <th>Datum</th>
+                <th>Čas</th>
+                <th>Produkt</th>
+                <th>Cena</th>
+            </tr>
+        </thead>
+        <tbody id="orders-body">
+            <!-- Zde se vykreslí objednávky -->
+            <tr>
+                <td>15.05.2025</td>
+                <td>14:32</td>
+                <td>Monster Mango Loco 500 ml</td>
+                <td>45 Kč</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-end"><strong>Cena celkem:</strong></td>
+                <td><strong id="total-orders-price">45 Kč</strong></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div class="text-end">
+        <button class="btn btn-outline-danger">📄 Export</button>
+    </div>
+</div>
