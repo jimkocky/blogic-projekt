@@ -42,5 +42,10 @@ namespace projekt_blogic.Controllers
         {
             return View();
         }
+
+        public IActionResult Orders()
+        {
+            return View();
+        }
     }
 }
