@@ -20,22 +20,24 @@ namespace projekt_blogic.Data
             }
         }
 
-        public static void ProductEdit(Product produkt)
+        public static Product ProductEdit(int productId, string name, string imgUrl, int quantity, int price)
         {
             using (SqlConnection connection = new(connectionString))
             {
-                connection.Execute(
+                var produkt = connection.QueryFirstOrDefault<Product>(
                     "ProcProductEdit",
                     new
                     {
-                        ProductId = produkt.ProductID,
-                        Name = produkt.Name,
-                        ImageUrl = produkt.ImageUrl,
-                        Quantity = produkt.Quantity,
-                        Price = produkt.Price
+                        ProductId = productId,
+                        Name = name,
+                        ImageUrl = imgUrl,
+                        Quantity = quantity,
+                        Price = price
                     },
                     commandType: CommandType.StoredProcedure
                 );
+
+                return produkt;
             }
         }
 
@@ -53,7 +55,7 @@ namespace projekt_blogic.Data
             "ProcProductInsert",
             parameters,
             commandType: CommandType.StoredProcedure);
-
+                 
             }
         }
     }

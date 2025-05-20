@@ -58,14 +58,20 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="Tables" />
+    <Folder Include="Products" />
+    <Folder Include="Users" />
+    <Folder Include="Products\Stored Procedures" />
+    <Folder Include="Products\Tables" />
+    <Folder Include="Users\Tables" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Tables\Products.sql" />
-    <Build Include="ProcProducts.sql" />
-    <Build Include="ProcProductInsert.sql" />
-    <Build Include="ProcProductEdit.sql" />
-    <Build Include="ProcProductDelete.sql" />
+    <Build Include="Users\ProcUsers.sql" />
+    <Build Include="Products\Stored Procedures\ProcProducts.sql" />
+    <Build Include="Products\Stored Procedures\ProcProductDelete.sql" />
+    <Build Include="Products\Stored Procedures\ProcProductEdit.sql" />
+    <Build Include="Products\Stored Procedures\ProcProductInsert.sql" />
+    <Build Include="Products\Tables\Products.sql" />
+    <Build Include="Users\Tables\Users.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="projekt-blogic.DB.refactorlog" />
