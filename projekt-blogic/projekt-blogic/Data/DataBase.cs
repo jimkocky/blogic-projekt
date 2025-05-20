@@ -2,7 +2,11 @@
 using Microsoft.Data.SqlClient;
 using projekt_blogic.Models.Products;
 using System.Data;
+
 using System.Data.SqlClient;
+
+using projekt_blogic.Models.Users;
+
 
 namespace projekt_blogic.Data
 {
@@ -56,7 +60,18 @@ namespace projekt_blogic.Data
             "ProcProductInsert",
             parameters,
             commandType: CommandType.StoredProcedure);
-                 
+
+            }
+        }
+        
+public static User GetUserById(int userId)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                return connection.QueryFirstOrDefault<User>(
+                    "SELECT * FROM Users WHERE UserId = @UserId",
+                    new { UserId = userId }
+                );
             }
         }
     }

@@ -3,201 +3,186 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>@ViewData["Title"]</title>
 </head>
 <body>
     <div class="container-fluid p-0">
-    <div class="bg-image" style="background-image: url('https://ichef.bbci.co.uk/ace/standard/2560/cpsprodpb/5760/live/13359050-27eb-11ef-8748-d589b4996777.jpg'); height: 300px;">
-        <div class="d-flex justify-content-center align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.5);">
-            <div class="text-center text-white">
-                <h1 class="mb-3">Správa produktů</h1>
+        <div class="bg-image" style="background-image: url('https://ichef.bbci.co.uk/ace/standard/2560/cpsprodpb/5760/live/13359050-27eb-11ef-8748-d589b4996777.jpg'); height: 300px;">
+            <div class="d-flex justify-content-center align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.5);">
+                <div class="text-center text-white">
+                    <h1 class="mb-3">Správa produktů</h1>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
     <div class="container-sprava">
-    <table class="tabulka-sprava">
-    <tr>
-        <th class="prdkt">Produkt</th>
-        <th class="mnzst">Množství</th>
-        <th class="cena">Cena</th>
-        <th class="funkc">    </th>
-    </tr>
-    <tr>
-        <td class="td">
-            <div class="produkt">
-                Rohlík
-                <img src="/image/rohlik.png" style="max-width: 70px;">
-            </div>
-        </td>
-        <td class="td" style="text-align: center;">
-            5 ks.
-        </td>
-        <td class="td" style="text-align: center;">
-            1 Kč
-        </td>
-        <td class="td">
-            <div class="icon-buttons">
-                <a class="edit-button" href="" style="text-decoration: none;">
-                    <img class="icon-sprava" src="/image/build_circle_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                 </a>
-                <a class="delete-button" href="" style="text-decoration: none;">
-                    <img class="icon-sprava" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                </a>
-            </div>
-        </td>
-    </tr>
 
-    <tr>
-        <td class="td">
-            <div class="produkt">
-                Produkt
-                <img src="/image/.png" style="max-width: 70px;">
-            </div>
-        </td>
-        <td class="td" style="text-align: center;">
-            x ks.
-        </td>
-        <td class="td" style="text-align: center;">
-            x Kč
-        </td>
-        <td class="td">
-            <div class="icon-buttons">
-                <a class="edit-button" href="" style="text-decoration: none;">
-                    <img class="icon-sprava" src="/image/build_circle_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                 </a>
-                <a class="delete-button" href="" style="text-decoration: none;">
-                    <img class="icon-sprava" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                </a>
-            </div>
-        </td>
-    </tr>
+        <table class="tabulka-sprava">
+            <tr>
+                <th class="prdkt">Produkt</th>
+                <th class="mnzst">Množství</th>
+                <th class="cena">Cena</th>
+                <th class="funkc">    </th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="produkt">
+                        Rohlík
+                        <img src="/image/rohlik.png" style="max-width: 70px;" />
+                    </div>
+                </td>
+                <td style="text-align: center;">5 ks.</td>
+                <td style="text-align: center;">1 Kč</td>
+                <td>
+                    <div class="icon-buttons">
+                        <a href="#" class="edit-button" style="text-decoration: none;" onclick="editProduct(this); return false;">
+                            <img class="icon-sprava" src="/image/build_circle_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png" alt="Upravit" />
+                        </a>
+                        <a href="#" class="delete-button" style="text-decoration: none;" onclick="this.closest('tr').remove()">
+                            <img class="icon-sprava" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png" alt="Smazat" />
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </table>
 
-     <tr>
-        <td class="td">
-            <div class="produkt">
-                Produkt
-                <img src="/image/.png" style="max-width: 70px;">
+        <div class="product-form">
+            <div class="form-name">
+                <label class="form-field">
+                    <input id="productName" class="input product-name" required type="text" placeholder="Název produktu" />
+                </label>
+                <label class="form-field">
+                    <input type="file" accept="image/*" id="productImage" style="display:none" />
+                    <button type="button" class="select-image-link" onclick="document.getElementById('productImage').click()">Vybrat obrázek</button>
+                </label>
             </div>
-        </td>
-        <td class="td" style="text-align: center;">
-            x ks.
-        </td>
-        <td class="td" style="text-align: center;">
-            x Kč
-        </td>
-        <td class="td">
-            <div class="icon-buttons">
-                <a class="edit-button" href="" style="text-decoration: none;">
-                    <img class="icon-sprava" src="/image/build_circle_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                 </a>
-                <a class="delete-button" href="" style="text-decoration: none;">
-                    <img class="icon-sprava" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                </a>
+            <div class="form-input">
+                <label class="form-field">
+                    <input id="productQuantity" class="input product-input" type="number" placeholder="Kusy" required />
+                </label>
+                <label class="form-field">
+                    <input id="productPrice" class="input product-input" type="number" placeholder="Cena" required />
+                </label>
             </div>
-        </td>
-    </tr>
+            <div class="form-actions">
+                <button type="button" class="save-button" onclick="addProduct()">Uložit</button>
+                <button type="button" class="cancel-button" onclick="resetForm()">Zahodit</button>
+            </div>
+        </div>
 
-         <tr></tr>
-        <td class="td">
-            <div class="produkt">
-                Produkt
-                <img src="/image/.png" style="max-width: 70px;">
-            </div>
-        </td>
-        <td class="td" style="text-align: center;">
-            x ks.
-        </td>
-        <td class="td" style="text-align: center;">
-            x Kč
-        </td>
-        <td class="td">
-            <div class="icon-buttons">
-                <a class="edit-button" href="" style="text-decoration: none;">
-                    <img class="icon-sprava" src="/image/build_circle_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                 </a>
-                <a class="delete-button" href="" style="text-decoration: none;">
-                    <img class="icon-sprava" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                </a>
-            </div>
-        </td>
-    </tr>
-
-         <tr>
-        <td class="td">
-            <div class="produkt">
-                Produkt
-                <img src="/image/.png" style="max-width: 70px;">
-            </div>
-        </td>
-        <td class="td" style="text-align: center;">
-            x ks.
-        </td>
-        <td class="td" style="text-align: center;">
-            x Kč
-        </td>
-        <td class="td">
-            <div class="icon-buttons">
-                <a class="edit-button" href="" style="text-decoration: none;">
-                    <img class="icon-sprava" src="/image/build_circle_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                 </a>
-                <a class="delete-button" href="" style="text-decoration: none;">
-                    <img class="icon-sprava" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                </a>
-            </div>
-        </td>
-    </tr>
-
-         <tr>
-        <td class="td">
-            <div class="produkt">
-                Produkt
-                <img src="/image/.png" style="max-width: 70px;">
-            </div>
-        </td>
-        <td class="td" style="text-align: center;">
-            x ks.
-        </td>
-        <td class="td" style="text-align: center;">
-            x Kč
-        </td>
-        <td class="td">
-            <div class="icon-buttons">
-                <a class="edit-button" href="" style="text-decoration: none;">
-                    <img class="icon-sprava" src="/image/build_circle_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                 </a>
-                <a class="delete-button" href="" style="text-decoration: none;">
-                    <img class="icon-sprava" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png">
-                </a>
-            </div>
-        </td>
-    </tr>
-    </table>
-<div class="product-form">
-    <div class="form-name">
-        <label class="form-field">
-            <input class="input product-name" required type="text" placeholder="Název produktu">
-        </label>
-        <button class="select-image-link" type="button">Vybrat obrázek</button>
     </div>
-    <div class="form-input">
-        <label class="form-field">
-            <input class="input product-input" type="text" placeholder="Kusy" required>
-        </label>
 
-        <label class="form-field">
-            <input class="input product-input" type="text" placeholder="Cena" required>
-        </label>
-    </div>
-    <div class="form-actions">
-        <button class="save-button" type="button">Uložit</button>
-        <button class="cancel-button" type="button">Zahodit</button>
-    </div>
-</div>
-</div>
+    <script>
+        let editRow = null;
+
+        function editProduct(button) {
+            editRow = button.closest('tr');
+            const cells = editRow.querySelectorAll('td');
+
+            const name = cells[0].querySelector('.produkt').childNodes[0].nodeValue.trim();
+            const quantity = cells[1].textContent.replace(' ks.', '').trim();
+            const price = cells[2].textContent.replace(' Kč', '').trim();
+
+            document.getElementById('productName').value = name;
+            document.getElementById('productQuantity').value = quantity;
+            document.getElementById('productPrice').value = price;
+        }
+
+        function addProduct() {
+            const name = document.getElementById('productName').value.trim();
+            const quantity = Number(document.getElementById('productQuantity').value);
+            const price = Number(document.getElementById('productPrice').value);
+            const imageInput = document.getElementById('productImage');
+            const table = document.querySelector('.tabulka-sprava');
+
+            if (!name || !quantity || !price) {
+                alert('Vyplňte prosím všechna pole.');
+                return;
+            }
+
+            if (quantity < 0) {
+                alert('Množství nemůže být záporné.');
+                return;
+            }
+
+            if (price < 0) {
+                alert('Cena nemůže být záporná.');
+                return;
+            }
+
+            if (editRow) {
+                const cells = editRow.querySelectorAll('td');
+                cells[0].querySelector('.produkt').childNodes[0].nodeValue = name;
+                // Obrázek se zatím nemění kvůli složitosti
+
+                cells[1].textContent = quantity + ' ks.';
+                cells[2].textContent = price + ' Kč';
+
+                editRow = null;
+            } else {
+                const newRow = document.createElement('tr');
+
+                const productCell = document.createElement('td');
+                const produktDiv = document.createElement('div');
+                produktDiv.className = 'produkt';
+                produktDiv.textContent = name;
+
+                if (imageInput.files[0]) {
+                    const img = document.createElement('img');
+                    img.style.maxWidth = "50px";
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        img.src = e.target.result;
+                        produktDiv.appendChild(img);
+                    };
+                    reader.readAsDataURL(imageInput.files[0]);
+                }
+
+                productCell.appendChild(produktDiv);
+
+                const quantityCell = document.createElement('td');
+                quantityCell.style.textAlign = "center";
+                quantityCell.textContent = quantity + " ks.";
+
+                const priceCell = document.createElement('td');
+                priceCell.style.textAlign = "center";
+                priceCell.textContent = price + " Kč";
+
+                const actionCell = document.createElement('td');
+                actionCell.innerHTML = `
+                    <div class="icon-buttons">
+                        <a href="#" class="edit-button" style="text-decoration: none;" onclick="editProduct(this); return false;">
+                            <img class="icon-sprava" src="/image/build_circle_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png" alt="Upravit" />
+                        </a>
+                        <a href="#" class="delete-button" style="text-decoration: none;" onclick="this.closest('tr').remove()">
+                            <img class="icon-sprava" src="/image/delete_forever_50dp_FFC107_FILL0_wght400_GRAD0_opsz48.png" alt="Smazat" />
+                        </a>
+                    </div>`;
+
+                newRow.appendChild(productCell);
+                newRow.appendChild(quantityCell);
+                newRow.appendChild(priceCell);
+                newRow.appendChild(actionCell);
+
+                table.appendChild(newRow);
+            }
+
+            resetForm();
+        }
+
+        function resetForm() {
+            document.getElementById('productName').value = '';
+            document.getElementById('productQuantity').value = '';
+            document.getElementById('productPrice').value = '';
+            document.getElementById('productImage').value = '';
+            editRow = null;
+        }
+    </script>
+
 </body>
 </html>

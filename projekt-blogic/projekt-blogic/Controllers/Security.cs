@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using projekt_blogic.Data;
 using System.Security.Claims;
 
-
 namespace projekt_blogic.Controllers
 {
     public class SecurityController : Controller
-    {
+    
+
 
 
 
@@ -18,18 +18,21 @@ namespace projekt_blogic.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login(int userId, string name)
         {
-            var user = DataBase.Users(userId);
+            var user = DataBase.GetUserById(userId); // opraveno
+
             var claims = new List<Claim>
-    {
-                new Claim("UserId", user.UserId.ToString(), ClaimValueTypes.Integer),
+            {
+                new Claim("UserId", user.UserId.ToString()),
                 new Claim("Name", user.Name),
                 new Claim("Email", user.Email),
                 new Claim("ImageUrl", user.ImageUrl ?? string.Empty),
                 new Claim(ClaimTypes.Role, user.Role.ToString())
-    };
+            };
+
             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var principal = new ClaimsPrincipal(identity);
             var properties = new AuthenticationProperties();
+
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, properties);
             return RedirectToAction("Index", "Home");
         }
@@ -40,5 +43,4 @@ namespace projekt_blogic.Controllers
             return RedirectToAction("Index", "Home");
         }
     }
-
 }
