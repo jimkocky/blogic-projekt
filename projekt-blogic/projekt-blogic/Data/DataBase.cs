@@ -2,6 +2,9 @@
 using Microsoft.Data.SqlClient;
 using projekt_blogic.Models.Products;
 using System.Data;
+
+using System.Data.SqlClient;
+
 using projekt_blogic.Models.Users;
 
 
