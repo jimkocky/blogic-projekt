@@ -10,10 +10,10 @@ namespace projekt_blogic.Controllers
 {
     public class SecurityController : Controller
     {
-        
 
-        
-      
+
+
+
 
         [AllowAnonymous]
         public async Task<IActionResult> Login(int userId, string name)
