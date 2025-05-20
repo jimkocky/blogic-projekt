@@ -43,6 +43,11 @@ namespace projekt_blogic.Controllers
             return View();
         }
 
+        public IActionResult Registrace()
+        {
+            return View();
+        }
+
         public IActionResult Orders()
         {
             return View();
