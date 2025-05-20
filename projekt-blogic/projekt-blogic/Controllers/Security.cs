@@ -8,7 +8,7 @@ using System.Security.Claims;
 namespace projekt_blogic.Controllers
 {
     public class SecurityController : Controller
-    
+    {
 
 
 
