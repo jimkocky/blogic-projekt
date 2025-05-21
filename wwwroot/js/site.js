@@ -11,13 +11,9 @@ moje: [
   ],
   ostatni: [
     { title: "Fidorka", price: "15 Kč", img: "/image/fidorka.png" },
-    { title: "Ostatní 2", price: "95 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Ostatní 3", price: "99 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Ostatní 4", price: "105 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Ostatní 5", price: "90 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Ostatní 6", price: "95 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Ostatní 7", price: "99 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Ostatní 8", price: "105 Kč", img: "https://via.placeholder.com/300" },
+    { title: "Ostatní 2", price: "X Kč", img: "https://via.placeholder.com/300" },
+    { title: "Ostatní 3", price: "X Kč", img: "https://via.placeholder.com/300" },
+    { title: "Ostatní 4", price: "X Kč", img: "https://via.placeholder.com/300" },
   ],
   sleva: [
     { title: "WC", price: "5 Kč", img: "image/kadibudka.png" },
