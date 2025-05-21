@@ -75,7 +75,7 @@ header h1 img {
 }
 
 .nav-item.dropdown .dropdown-menu {
-    min-width: 200px;
+    min-width: 0px;
 }
 
 .container-sprava, .container-kosik{
@@ -171,8 +171,11 @@ header h1 img {
 }
 
 .product-img {
-    height: 100px;
-    /* object-fit: cover; */
+    max-height: 150px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    margin: 5% auto 0;
 }
 
 .product-form {
@@ -196,7 +199,7 @@ header h1 img {
 }
 
 .form-actions {
-    display: flex;
+    display: flex;  
     align-items: center;
     gap: 20px;
 }
@@ -308,3 +311,4 @@ header h1 img {
 .login-link:hover{
     color: #2c3e50;
 }
+
