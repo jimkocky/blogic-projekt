@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Table1]
+﻿CREATE TABLE [dbo].[Users]
 (
 	[UserId] INT NOT NULL PRIMARY KEY IDENTITY, 
     [Name] NVARCHAR(256) NOT NULL, 

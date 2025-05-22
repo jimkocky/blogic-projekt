@@ -63,6 +63,9 @@
     <Folder Include="Products\Stored Procedures" />
     <Folder Include="Products\Tables" />
     <Folder Include="Users\Tables" />
+    <Folder Include="Orders" />
+    <Folder Include="Orders\Tables" />
+    <Folder Include="Orders\StoredProcedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Users\ProcUsers.sql" />
@@ -72,6 +75,9 @@
     <Build Include="Products\Stored Procedures\ProcProductInsert.sql" />
     <Build Include="Products\Tables\Products.sql" />
     <Build Include="Users\Tables\Users.sql" />
+    <Build Include="Orders\Tables\Orders.sql" />
+    <Build Include="Orders\StoredProcedures\ProcOrders.sql" />
+    <Build Include="Orders\StoredProcedures\ProcOrdersDelete.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="projekt-blogic.DB.refactorlog" />
