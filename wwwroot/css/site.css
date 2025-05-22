@@ -175,7 +175,14 @@ header h1 img {
     width: auto;
     object-fit: contain;
     display: block;
-    margin: 5% auto 0;
+    margin: 5% auto 0; 
+}
+
+.kosik-img{
+    max-height: 50px;
+    width: auto;
+    object-fit: contain;
+    display: block;
 }
 
 .product-form {
@@ -244,7 +251,7 @@ header h1 img {
 }
 
 .select-image-link:hover, .button-login:hover, .button-register:hover {
-  background-color: #e0a600;
+  background-color: #ffca2c;
 }
 
 .save-button {

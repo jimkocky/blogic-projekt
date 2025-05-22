@@ -113,7 +113,6 @@ function addToCart(title, price, img) {
     cart.push({ title, price, img, quantity: 1 });
   }
   localStorage.setItem("cart", JSON.stringify(cart));
-  alert(`✅ Přidáno do košíku: ${title}`);
   updateCartCount();
 }
 
@@ -134,7 +133,7 @@ function renderCart() {
   let total = 0;
 
   cart.forEach((item, index) => {
-    item.quantity = item.quantity || 1; // Ochrana pro starší záznamy
+    item.quantity = item.quantity || 1;
     const priceNumber = parseInt(item.price.replace(" Kč", ""));
     const itemTotal = item.quantity * priceNumber;
     total += itemTotal;
