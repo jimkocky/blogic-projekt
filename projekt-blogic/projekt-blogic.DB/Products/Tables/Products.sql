@@ -6,7 +6,7 @@
     [DateUpdated] DATETIME NOT NULL DEFAULT GETDATE(), 
     [UpdatedBy] INT NOT NULL DEFAULT 0, 
     [IsDeleted] BIT NOT NULL DEFAULT 0, 
-    [Name] NVARCHAR(512) NOT NULL, 
+    [Name] NTEXT NOT NULL, 
     [Price] INT NOT NULL, 
     [Quantity] INT NOT NULL, 
     [ImageURL] NVARCHAR(1024) NOT NULL

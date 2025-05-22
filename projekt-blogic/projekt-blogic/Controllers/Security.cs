@@ -8,17 +8,10 @@ using System.Security.Claims;
 namespace projekt_blogic.Controllers
 {
     public class SecurityController : Controller
-    
-
-
-
-
-
-
-        [AllowAnonymous]
+    {
         public async Task<IActionResult> Login(int userId, string name)
         {
-            var user = DataBase.GetUserById(userId); // opraveno
+            var user = DataBase.GetUserById(userId); 
 
             var claims = new List<Claim>
             {
@@ -29,12 +22,7 @@ namespace projekt_blogic.Controllers
                 new Claim(ClaimTypes.Role, user.Role.ToString())
             };
 
-            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-            var principal = new ClaimsPrincipal(identity);
-            var properties = new AuthenticationProperties();
 
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, properties);
-            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult Logout()
@@ -42,5 +30,8 @@ namespace projekt_blogic.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("Index", "Home");
         }
+
     }
+       
+    
 }
