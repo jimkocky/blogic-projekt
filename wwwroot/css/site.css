@@ -75,7 +75,7 @@ header h1 img {
 }
 
 .nav-item.dropdown .dropdown-menu {
-    min-width: 200px;
+    min-width: 0px;
 }
 
 .container-sprava, .container-kosik{
@@ -171,8 +171,18 @@ header h1 img {
 }
 
 .product-img {
-    height: 100px;
-    /* object-fit: cover; */
+    max-height: 150px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    margin: 5% auto 0; 
+}
+
+.kosik-img{
+    max-height: 50px;
+    width: auto;
+    object-fit: contain;
+    display: block;
 }
 
 .product-form {
@@ -196,7 +206,7 @@ header h1 img {
 }
 
 .form-actions {
-    display: flex;
+    display: flex;  
     align-items: center;
     gap: 20px;
 }
@@ -225,7 +235,7 @@ header h1 img {
     width: 7vw;
 }
 
-.select-image-link,.save-button,.cancel-button, .login {
+.select-image-link,.save-button,.cancel-button, .button-login, .button-register {
   padding: 12px 20px;
   font-size: 16px;
   border: none;
@@ -234,14 +244,14 @@ header h1 img {
   transition: background-color 0.3s;
 }
 
-.select-image-link, .login {
+.select-image-link, .button-login, .button-register {
   background-color: #f8b700;
   width: 200px;
   color: black;
 }
 
-.select-image-link:hover, .login:hover {
-  background-color: #e0a600;
+.select-image-link:hover, .button-login:hover, .button-register:hover {
+  background-color: #ffca2c;
 }
 
 .save-button {
@@ -264,28 +274,40 @@ header h1 img {
   background-color: #c62828;
 }
 
-.container-login{
+.container-login, .container-register{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 5%;
+}
+
+.container-login{
     height: 60vh;
-    gap:5%;
+}
+
+.container-register{
+    height: 80vh;
 }
 
 .login-input{
     width: 20vw;
 }
 
-.login-email, .login-password{
+.login-email, .login-password,.register-password,.register-email,.register-name{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.login{
+.button-login{
     margin: 1% 0 0;
     width: 20vh;
+}
+
+.button-register{
+    margin: 1% 0 0;
+    width: 25vh;
 }
 
 .login-link{
@@ -296,3 +318,4 @@ header h1 img {
 .login-link:hover{
     color: #2c3e50;
 }
+

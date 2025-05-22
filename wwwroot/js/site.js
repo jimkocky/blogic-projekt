@@ -1,96 +1,83 @@
 ﻿const data = {
-  moje: [
-    { title: "Moje 1", price: "100 Kč", img: "/image/rohlik.png" },
-    { title: "Moje 2", price: "110 Kč", img: "/image/monster.png" },
-    { title: "Moje 3", price: "120 Kč", img: "/image/adam.png" },
-    { title: "Moje 4", price: "130 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Moje 5", price: "100 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Moje 6", price: "110 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Moje 7", price: "120 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Moje 8", price: "130 Kč", img: "https://via.placeholder.com/300" },
+moje: [
+    { title: "Rohlík", price: "2 Kč", img: "/image/rohlik.png" },
+    { title: "Monster Lewis", price: "30 Kč", img: "/image/monster.png" },
+    { title: "Adam", price: "69 Kč", img: "/image/adam.png" },
+    { title: "Kinder Maxi", price: "13 Kč", img: "/image/maxi.png" },
+    { title: "Kofola", price: "35 Kč", img: "/image/kofola.png" },
+    { title: "Lentilky", price: "15 Kč", img: "/image/lentilky.png" },
+    { title: "Koblih s nutelou", price: "18 Kč", img: "/image/koblih.png" },
+    { title: "Margot", price: "20 Kč", img: "/image/margot.png" },
   ],
   ostatni: [
-    { title: "Ostatní 1", price: "90 Kč", img: "/image/fidorka.png" },
-    { title: "Ostatní 2", price: "95 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Ostatní 3", price: "99 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Ostatní 4", price: "105 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Ostatní 5", price: "90 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Ostatní 6", price: "95 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Ostatní 7", price: "99 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Ostatní 8", price: "105 Kč", img: "https://via.placeholder.com/300" },
+    { title: "Fidorka", price: "15 Kč", img: "/image/fidorka.png" },
+    { title: "Ostatní 2", price: "X Kč", img: "https://via.placeholder.com/300" },
+    { title: "Ostatní 3", price: "X Kč", img: "https://via.placeholder.com/300" },
+    { title: "Ostatní 4", price: "X Kč", img: "https://via.placeholder.com/300" },
   ],
   sleva: [
-    { title: "Sleva 1", price: "70 Kč", img: "image/kadibudka.png" },
-    { title: "Sleva 2", price: "75 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Sleva 3", price: "80 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Sleva 4", price: "85 Kč", img: "https://via.placeholder.com/300" },
-     { title: "Sleva 5", price: "70 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Sleva 6", price: "75 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Sleva 7", price: "80 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Sleva 8", price: "85 Kč", img: "https://via.placeholder.com/300" },
+    { title: "WC", price: "5 Kč", img: "image/kadibudka.png" },
+    { title: "Sleva 2", price: "X Kč", img: "https://via.placeholder.com/300" },
+    { title: "Sleva 3", price: "X Kč", img: "https://via.placeholder.com/300" },
+    { title: "Sleva 4", price: "X Kč", img: "https://via.placeholder.com/300" },
   ],
   novinka: [
-    { title: "Novinka 1", price: "150 Kč", img: "/image/dubai.jpg" },
-    { title: "Novinka 2", price: "160 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Novinka 3", price: "170 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Novinka 4", price: "180 Kč", img: "https://via.placeholder.com/300" },
-     { title: "Novinka 5", price: "150 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Novinka 6", price: "160 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Novinka 7", price: "170 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Novinka 8", price: "180 Kč", img: "https://via.placeholder.com/300" },
+    { title: "Muller milk", price: "30 Kč", img: "/image/dubai.jpg" },
+    { title: "Novinka 2", price: "X Kč", img: "https://via.placeholder.com/300" },
+    { title: "Novinka 3", price: "X Kč", img: "https://via.placeholder.com/300" },
+    { title: "Novinka 4", price: "X Kč", img: "https://via.placeholder.com/300" },
   ],
   svacina: [
-    { title: "Svačina 1", price: "55 Kč", img: "/image/toast.jpg" },
-    { title: "Svačina 2", price: "60 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Svačina 3", price: "62 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Svačina 4", price: "64 Kč", img: "https://via.placeholder.com/300" },
-     { title: "Svačina 5", price: "55 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Svačina 6", price: "60 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Svačina 7", price: "62 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Svačina 8", price: "64 Kč", img: "https://via.placeholder.com/300" },
+    { title: "Toast", price: "30 Kč", img: "/image/toast.jpg" },
+    { title: "Bageta šunková", price: "50 Kč", img: "/image/bageta.png" },
+    { title: "Donut s jahodovou příchutí", price: "15 Kč", img: "/image/donut.png" },
+    { title: "Kuřecí wrap", price: "80 Kč", img: "/image/wrap.png" },
+    { title: "Chlebíček", price: "35 Kč", img: "/image/chlebicek.png" },
+    { title: "7Days croissant", price: "19 Kč", img: "/image/7days.png" },
+    { title: "BeBe Dobré Ráno s mlékem", price: "10 Kč", img: "/image/bebe.png" },
   ],
   sladke: [
-    { title: "Sladké 1", price: "35 Kč", img: "/image/bueno.jpeg" },
-    { title: "Sladké 2", price: "40 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Sladké 3", price: "45 Kč", img: "https://via.placeholder.ccom/300" },
-    { title: "Sladké 4", price: "50 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Sladké 5", price: "35 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Sladké 6", price: "40 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Sladké 7", price: "45 Kč", img: "https://via.placeholder.ccom/300" },
-    { title: "Sladké 8", price: "50 Kč", img: "https://via.placeholder.com/300" },
+    { title: "Kinder Bueno", price: "20 Kč", img: "/image/bueno.jpeg" },
+    { title: "Kinder mléčný řey", price: "19 Kč", img: "/image/mliecny-rez.png" },
+    { title: "Pribiňáček", price: "19 Kč", img: "/image/Pribinacek.png" },
+    { title: "Čoko piškoty", price: "50 Kč", img: "/image/coko-piskot.png" },
+    { title: "Corny BIG banán v čokoládě", price: "30 Kč", img: "/image/corny.png" },
+    { title: "Zlaté polomáčené", price: "25 Kč", img: "/image/zlatky.png" },
+    { title: "Esíčka", price: "45 Kč", img: "image/esicka.png" },
+    { title: "Skittles", price: "18 Kč", img: "/image/skittles.png" },
   ],
   slane: [
-    { title: "Slané 1", price: "25 Kč", img: "/image/mara.png" },
-    { title: "Slané 2", price: "30 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Slané 3", price: "33 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Slané 4", price: "36 Kč", img: "https://via.placeholder.com/300" },
-     { title: "Slané 5", price: "25 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Slané 6", price: "30 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Slané 7", price: "33 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Slané 8", price: "36 Kč", img: "https://via.placeholder.com/300" },
+    { title: "Bohemia Chips solené", price: "30 Kč", img: "/image/bohemia.png" },
+    { title: "Bohemia Z pece Sýrové tyčinky", price: "29 Kč", img: "/image/zpecesyr.png" },
+    { title: "Bake Rolls Pizza", price: "30 Kč", img: "/image/bakerolls.png" },
+    { title: "Snack IT Kabanos", price: "25 Kč", img: "/image/snackit.png" },
+    { title: "Dupetky Černý & bílý sezam", price: "25 Kč", img: "/image/dupetky.png" },
+    { title: "Vest Precle solené", price: "29 Kč", img: "/image/vest.png" },
+    { title: "Pringles Original", price: "75 Kč", img: "/image/pringles.png" },
+    { title: "Slaný rohlík", price: "4 Kč", img: "image/slany-rohlik.png" },
   ],
-  napoje: [
-    { title: "Nápoj 1", price: "20 Kč", img: "/image/pepsi.png" },
-    { title: "Nápoj 2", price: "25 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Nápoj 3", price: "28 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Nápoj 4", price: "30 Kč", img: "https://via.placeholder.com/300" },
-      { title: "Nápoj 5", price: "20 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Nápoj 6", price: "25 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Nápoj 7", price: "28 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Nápoj 8", price: "30 Kč", img: "https://via.placeholder.com/300" },
+napoje: [
+    { title: "Pepsi", price: "20 Kč", img: "/image/pepsi.png" },
+    { title: "Monster Ultra", price: "30 Kč", img: "/image/ultra.png" },
+    { title: "Rajec", price: "12 Kč", img: "image/rajec.png" },
+    { title: "Fanta", price: "28 Kč", img: "image/fanta.png" },
+      { title: "Monster Ultra Peachy Keen", price: "30 Kč", img: "/image/peach.png" },
+    { title: "Coca cola", price: "28 Kč", img: "/image/cola.png" },
+    { title: "Vinea", price: "28 Kč", img: "/image/vinea.png" },
+    { title: "Toptopic", price: "20 Kč", img: "/image/topic.png" },
   ],
   zmrzlina: [
-    { title: "Zmrzlina 1", price: "60 Kč", img: "/image/mroz.png" },
-    { title: "Zmrzlina 2", price: "65 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Zmrzlina 3", price: "68 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Zmrzlina 4", price: "72 Kč", img: "https://via.placeholder.com/300" },
-     { title: "Zmrzlina 5", price: "60 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Zmrzlina 6", price: "65 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Zmrzlina 7", price: "68 Kč", img: "https://via.placeholder.com/300" },
-    { title: "Zmrzlina 8", price: "72 Kč", img: "https://via.placeholder.com/300" },
+    { title: "Mrož", price: "18 Kč", img: "/image/mroz.png" },
+    { title: "Míša", price: "14 Kč", img: "/image/misatvaroh.png" },
+    { title: "Magnum", price: "60 Kč", img: "/image/magnum.png" },
+    { title: "Ledňáček", price: "10 Kč", img: "/image/lednacek.png" },
+     { title: "Calipo", price: "20 Kč", img: "/image/calipo.png" },
+    { title: "Míša Kornout", price: "25 Kč", img: "/image/misakornout.png" },
+    { title: "Oreo", price: "50 Kč", img: "/image/oreo.png" },
+    { title: "Twister", price: "30 Kč", img: "/image/twister.png" },
   ]
-};
 
+};
 function loadCategory(category) {
   const productsDiv = document.getElementById("products");
   productsDiv.innerHTML = "";
@@ -126,7 +113,6 @@ function addToCart(title, price, img) {
     cart.push({ title, price, img, quantity: 1 });
   }
   localStorage.setItem("cart", JSON.stringify(cart));
-  alert(`✅ Přidáno do košíku: ${title}`);
   updateCartCount();
 }
 
@@ -147,7 +133,7 @@ function renderCart() {
   let total = 0;
 
   cart.forEach((item, index) => {
-    item.quantity = item.quantity || 1; // Ochrana pro starší záznamy
+    item.quantity = item.quantity || 1;
     const priceNumber = parseInt(item.price.replace(" Kč", ""));
     const itemTotal = item.quantity * priceNumber;
     total += itemTotal;
@@ -157,14 +143,14 @@ function renderCart() {
       <td class="td">
         <div class="produkt">
           ${item.title}
-          <img src="${item.img}" style="max-width: 70px;">
+          <img src="${item.img}">
         </div>
       </td>
       <td class="td text-center">${item.quantity} ks.</td>
       <td class="td text-center">${itemTotal} Kč</td>
       <td class="td text-center">
         <a class="delete-button" onclick="removeFromCart(${index})" style="text-decoration: none;">
-          <img class="icon" src="/images/delete_forever.png" style="width:24px;">
+          <img class="icon" src="/images/delete_forever.png">
         </a>
       </td>
     `;
