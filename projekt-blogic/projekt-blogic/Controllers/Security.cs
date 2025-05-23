@@ -9,9 +9,15 @@ namespace projekt_blogic.Controllers
 {
     public class SecurityController : Controller
     {
+        [HttpPost]
         public async Task<IActionResult> Login(int userId, string name)
         {
-            var user = DataBase.GetUserById(userId); 
+            var user = DataBase.GetUserById(userId);
+
+            if (user == null)
+            {
+                return View("LoginFailed");
+            }
 
             var claims = new List<Claim>
             {
@@ -22,16 +28,28 @@ namespace projekt_blogic.Controllers
                 new Claim(ClaimTypes.Role, user.Role.ToString())
             };
 
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
-        }
+            var authProperties = new AuthenticationProperties
+            {
+                IsPersistent = true,
+                ExpiresUtc = DateTimeOffset.UtcNow.AddHours(1)
+            };
 
-        public IActionResult Logout()
-        {
-            HttpContext.Session.Clear();
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity),
+                authProperties
+            );
+
             return RedirectToAction("Index", "Home");
         }
 
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
     }
-       
-    
 }
