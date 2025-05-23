@@ -5,12 +5,11 @@ using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Autentifikace pomocí cookies
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
         options.LoginPath = "/Security/Login"; 
-        options.ExpireTimeSpan = TimeSpan.FromMinutes(60); // volitelné
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(60); 
     });
 
 builder.Services.AddControllersWithViews();
@@ -18,7 +17,6 @@ builder.Services.AddSession();
 
 var app = builder.Build();
 
-// Konfigurace pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -30,8 +28,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseSession();                // Session před autorizací
-app.UseAuthentication();         // Auth musí být PŘED Authorization
+app.UseSession();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

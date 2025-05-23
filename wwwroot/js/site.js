@@ -54,7 +54,6 @@ moje: [
     { title: "Dupetky Černý & bílý sezam", price: "25 Kč", img: "/image/dupetky.png" },
     { title: "Vest Precle solené", price: "29 Kč", img: "/image/vest.png" },
     { title: "Pringles Original", price: "75 Kč", img: "/image/pringles.png" },
-    { title: "Slaný rohlík", price: "4 Kč", img: "image/slany-rohlik.png" },
   ],
 napoje: [
     { title: "Pepsi", price: "20 Kč", img: "/image/pepsi.png" },

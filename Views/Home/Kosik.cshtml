@@ -14,6 +14,11 @@
 
 <div class="container-kosik">
 
+<div id="empty-cart-message" class="text-center my-5" style="display: none;">
+    <h4>🛒 Košík je prázdný.</h4>
+</div>
+
+<div id="cart-section" style="width: 100%;">
 <table class="tabulka-kosik w-100">
     <thead>
         <tr>
@@ -28,14 +33,13 @@
             </th>
         </tr>
     </thead>
-    <tbody id="cart-table-body">
+        <tbody id="cart-table-body">
     </tbody>
 </table>
 
-<div class="order">
-    <button class="order-button">Objednat</button>
-</div>
-
+    <div class="order">
+        <button class="order-button">Objednat</button>
+    </div>
 </div>
    
 @section Scripts {
@@ -44,7 +48,20 @@
             const cart = JSON.parse(localStorage.getItem("cart")) || [];
             const tableBody = document.getElementById("cart-table-body");
             const totalEl = document.getElementById("total-price");
+            const cartSection = document.getElementById("cart-section");
+            const emptyMessage = document.getElementById("empty-cart-message");
+
             tableBody.innerHTML = "";
+
+            if (cart.length === 0) {
+                cartSection.style.display = "none";
+                emptyMessage.style.display = "block";
+                totalEl.textContent = "0 Kč";
+                return;
+            } else {
+                cartSection.style.display = "block";
+                emptyMessage.style.display = "none";
+            }
 
             let total = 0;
 
