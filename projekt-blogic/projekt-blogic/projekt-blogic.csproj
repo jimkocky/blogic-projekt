@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>projekt_blogic</RootNamespace>
-
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <!-- Fixes for compiler errors -->
     <WarningLevel>4</WarningLevel>
     <DebugType>full</DebugType>

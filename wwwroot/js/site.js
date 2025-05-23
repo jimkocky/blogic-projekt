@@ -41,7 +41,7 @@ moje: [
     { title: "Kinder mléčný řey", price: "19 Kč", img: "/image/mliecny-rez.png" },
     { title: "Pribiňáček", price: "19 Kč", img: "/image/Pribinacek.png" },
     { title: "Čoko piškoty", price: "50 Kč", img: "/image/coko-piskot.png" },
-    { title: "Corny BIG banán v čokoládě", price: "30 Kč", img: "/image/corny.png" },
+    { title: "Corny BIG banán v čokoládě", price: "30 Kč", img: "/image/corn.png" },
     { title: "Zlaté polomáčené", price: "25 Kč", img: "/image/zlatky.png" },
     { title: "Esíčka", price: "45 Kč", img: "image/esicka.png" },
     { title: "Skittles", price: "18 Kč", img: "/image/skittles.png" },
@@ -54,7 +54,6 @@ moje: [
     { title: "Dupetky Černý & bílý sezam", price: "25 Kč", img: "/image/dupetky.png" },
     { title: "Vest Precle solené", price: "29 Kč", img: "/image/vest.png" },
     { title: "Pringles Original", price: "75 Kč", img: "/image/pringles.png" },
-    { title: "Slaný rohlík", price: "4 Kč", img: "image/slany-rohlik.png" },
   ],
 napoje: [
     { title: "Pepsi", price: "20 Kč", img: "/image/pepsi.png" },
