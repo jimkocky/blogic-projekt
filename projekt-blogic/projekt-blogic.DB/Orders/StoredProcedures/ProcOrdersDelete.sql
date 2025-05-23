@@ -1,8 +1,12 @@
 ﻿CREATE PROCEDURE [dbo].[ProcOrdersDelete]
-	
+	@OrderID INT
 AS
 BEGIN
-SET 
-
-	
-RETURN 0
+    DECLARE @ProductID INT;
+    SELECT @ProductID = ProductID FROM Orders WHERE OrderID = @OrderID;
+    UPDATE Products
+    SET Quantity = Quantity + 1
+    WHERE ProductID = @ProductID;
+    DELETE FROM Orders
+    WHERE OrderID = @OrderID;
+END
