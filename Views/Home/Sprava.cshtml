@@ -91,6 +91,31 @@
             document.getElementById('productName').value = name;
             document.getElementById('productQuantity').value = quantity;
             document.getElementById('productPrice').value = price;
+
+            const produktData = {
+                name: name,
+                quantity: quantity,
+                price: price
+            };
+
+            fetch('/Products/Edit', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(produktData)
+            })
+                .then(response => {
+                    if (!response.ok) throw new Error('Chyba při aktualizaci');
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Aktualizováno:', data);
+                })
+                .catch(error => {
+                    console.error('Chyba:', error);
+                });
+            
         }
 
         function addProduct() {

@@ -4,6 +4,8 @@ VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyMvcApp", "MyMvcApp.csproj", "{D76827D5-89F6-81A6-8EF5-0164960752AD}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DutyFree.DB", "..\DutyFree.DB\DutyFree.DB.sqlproj", "{2FA57081-E76A-4F5F-AADA-4A8EE9F51632}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,6 +16,12 @@ Global
 		{D76827D5-89F6-81A6-8EF5-0164960752AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D76827D5-89F6-81A6-8EF5-0164960752AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D76827D5-89F6-81A6-8EF5-0164960752AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FA57081-E76A-4F5F-AADA-4A8EE9F51632}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FA57081-E76A-4F5F-AADA-4A8EE9F51632}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FA57081-E76A-4F5F-AADA-4A8EE9F51632}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2FA57081-E76A-4F5F-AADA-4A8EE9F51632}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA57081-E76A-4F5F-AADA-4A8EE9F51632}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FA57081-E76A-4F5F-AADA-4A8EE9F51632}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,6 +9,7 @@ namespace projekt_blogic.Controllers
     {
         private static List<Product> _products = new List<Product> { new Product { Name = "Pepsi", Price = 42 } };
 
+        [HttpGet]
         public IActionResult Administration()
         {
 
@@ -21,31 +22,32 @@ namespace projekt_blogic.Controllers
             return View(vm);
         }
 
+        [HttpPost]
         public IActionResult Insert([FromBody] Product newProduct)
         {
             if (newProduct != null)
             {
-                newProduct.ProductID = _products.Max(p => p.ProductID) + 1;
-                _products.Add(newProduct);
+                DataBase.ProductInsert(newProduct.Name, newProduct.Price, newProduct.Quantity, newProduct.ImageUrl);
                 return Ok(newProduct);
             }
 
             return BadRequest();
         }
 
+        [HttpPut]
         public IActionResult Edit([FromBody] Product updatedProduct)
         {
             var existing = _products.FirstOrDefault(p => p.ProductID == updatedProduct.ProductID);
             if (existing != null)
             {
-                existing.Name = updatedProduct.Name;
-                existing.Price = updatedProduct.Price;
+                DataBase.ProductEdit(updatedProduct.ProductID, updatedProduct.Name, updatedProduct.ImageUrl, updatedProduct.Quantity, updatedProduct.Price);
                 return Ok(existing);
             }
 
             return NotFound();
         }
 
+        [HttpDelete]
         public IActionResult Delete(int id)
         {
             var product = _products.FirstOrDefault(p => p.ProductID == id);

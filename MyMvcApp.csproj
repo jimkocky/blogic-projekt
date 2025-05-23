@@ -8,6 +8,34 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Properties\launchSettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="obj\Debug\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\net8.0\projekt-blogic.GlobalUsings.g.cs" />
+    <Compile Include="obj\Debug\net8.0\projekt-blogic.RazorAssemblyInfo.cs" />
+    <Compile Include="obj\Release\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Release\net8.0\projekt-blogic.GlobalUsings.g.cs" />
+    <Compile Include="obj\Release\net8.0\projekt-blogic.RazorAssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Properties\launchSettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="obj\Debug\net8.0\projekt-blogic.csproj.FileListAbsolute.txt" />
+    <None Include="obj\Debug\net8.0\projekt-blogic.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\Debug\net8.0\projekt-blogic.RazorAssemblyInfo.cache" />
+    <None Include="obj\Release\net8.0\projekt-blogic.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\Release\net8.0\projekt-blogic.RazorAssemblyInfo.cache" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Dapper" Version="2.1.66" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
     <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />

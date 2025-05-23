@@ -8,9 +8,9 @@ using projekt_blogic.Models.Users;
 
 namespace projekt_blogic.Data
 {
-    public class DataBase
+    public static class DataBase
     {
-        private static readonly string connectionString = "Data Source = LAPTOP-RTBVRDRR; Initial Catalog = dutyfree; Integrated Security = True; TrustServerCertificate = True;";
+        private static readonly string connectionString = "Data Source = localhost; Initial Catalog = dutyfree; Integrated Security = True; TrustServerCertificate = True;";
 
         public static List<Product> GetAllProducts()
         {
