@@ -37,11 +37,11 @@ moje: [
     { title: "BeBe Dobré Ráno s mlékem", price: "10 Kč", img: "/image/bebe.png" },
   ],
   sladke: [
-    { title: "Kinder Bueno", price: "20 Kč", img: "/image/bueno.jpeg" },
+    { title: "Kinder Bueno", price: "20 Kč", img: "/image/bueno.png" },
     { title: "Kinder mléčný řey", price: "19 Kč", img: "/image/mliecny-rez.png" },
     { title: "Pribiňáček", price: "19 Kč", img: "/image/Pribinacek.png" },
     { title: "Čoko piškoty", price: "50 Kč", img: "/image/coko-piskot.png" },
-    { title: "Corny BIG banán v čokoládě", price: "30 Kč", img: "/image/corn.png" },
+    { title: "Corny BIG banán v čokoládě", price: "30 Kč", img: "/image/corny.png" },
     { title: "Zlaté polomáčené", price: "25 Kč", img: "/image/zlatky.png" },
     { title: "Esíčka", price: "45 Kč", img: "image/esicka.png" },
     { title: "Skittles", price: "18 Kč", img: "/image/skittles.png" },
