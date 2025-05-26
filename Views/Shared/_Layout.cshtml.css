@@ -8,7 +8,7 @@ a.navbar-brand {
 }
 
 a {
-  color: #0077cc;
+  color: #fff;
 }
 
 .btn-primary {
@@ -46,3 +46,4 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+

@@ -1,4 +1,0 @@
-﻿[*.cs]
-
-# IDE0005: Direktiva Using není potřebná.
-dotnet_diagnostic.IDE0005.severity = error
